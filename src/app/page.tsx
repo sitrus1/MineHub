@@ -6,8 +6,10 @@ import sectionIconServers from "@/img/section-icon-servers.png"
 import sectionImgServers from "@/img/section-img-servers.png"
 import sectionIconTexture from "@/img/section-icon-texture.png"
 import sectionImgTexture from "@/img/section-img-texture.png"
+import testSkincardPlaceholder from "@/img/test-skincard-placeholder.png"
 import Image from "next/image";
 import Link from "next/link";
+import { SkinCard } from "@/components/reusable/skin-card";
 
 export default function Home() {
   
@@ -68,6 +70,20 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className={`py-[60px]`} style={{ backgroundColor: darkBlue }}>
+        <div className="container">
+          <h2 className={`mb-[40px] text-shadow-md text-[40px] font-bold text-center mx-auto`} style={{ color: white }}>
+            Скины
+          </h2>
+          <div className="flex gap-[20px]">
+            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
           </div>
         </div>
       </section>

@@ -1,3 +1,4 @@
+'use client';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { darkBlue, font_pressStart2P, grayWhiter, white, whiteDarker } from "@/configs/colors";
@@ -10,6 +11,9 @@ import testSkincardPlaceholder from "@/img/test-skincard-placeholder.png"
 import Image from "next/image";
 import Link from "next/link";
 import { SkinCard } from "@/components/reusable/skin-card";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 
 export default function Home() {
   
@@ -25,18 +29,18 @@ export default function Home() {
       </div>
       <section className={`py-[60px]`} style={{ backgroundColor: darkBlue }}>
         <div className="container">
-          <h2 className={`mb-[40px] text-shadow-md text-[40px] font-bold text-center mx-auto`} style={{ color: white }}>
+          <h2 className={`lg:mb-[40px] text-shadow-md lg:text-[40px] font-bold text-center mx-auto text-[30px] mb-[20px]`} style={{ color: white }}>
             MINEHUB — Больше, чем сундук с ресурсами
           </h2>
-          <p className={`w-[800px] mx-auto text-center text-[20px]`} style={{ color: grayWhiter }}>Добро пожаловать на MINEHUB — место, где майнкрафтеры находят всё: от крутых модов и сборок до гайдов, скинов и серверов. Всё разложено по полочкам, как в идеальной шахте. Хочешь играть удобнее, красивее и интереснее? Ты точно по адресу. MINEHUB — твой личный хаб для Minecraft без лишнего копания.</p>
+          <p className={`lg:w-[800px] mx-auto text-center lg:text-[20px] text-[16px] w-[540px]`} style={{ color: grayWhiter }}>Добро пожаловать на MINEHUB — место, где майнкрафтеры находят всё: от крутых модов и сборок до гайдов, скинов и серверов. Всё разложено по полочкам, как в идеальной шахте. Хочешь играть удобнее, красивее и интереснее? Ты точно по адресу. MINEHUB — твой личный хаб для Minecraft без лишнего копания.</p>
         </div>
       </section>
       <section className={`py-[60px]`} style={{ backgroundColor: whiteDarker }}>
         <div className="container">
-          <div className="flex justify-between items-center">
-            <div className="w-[600px]">
+          <div className="flex lg:flex-row justify-between items-center flex-col">
+            <div className="w-[600px] mb-[30px] lg:mb-0">
               <h2 className={`mb-[20px] text-[40px] font-bold flex items-center gap-[16px]`} style={{ color: darkBlue }}>
-                <Image priority width={40} src={sectionIconServers} alt="" />
+                <Image priority className="w-[40px]" src={sectionIconServers} alt="" />
                 <span>Серверы</span>
               </h2>
               <p className={`mb-[40px] text-[20px]`} style={{ color: darkBlue }}>Ходить по серверам в поисках нормального — как копать алмазы без удачи III. Но не переживай, мы уже всё выкопали за тебя! Здесь собраны топовые Minecraft-серверы: выживание, мини-игры, техно, анархия и даже те, где тебя не забанят за то, что ты носишь скин херобрина. Ищи по версии, режиму и онлайну — и забудь, как звучит фраза "куда бы зайти...".</p>
@@ -54,11 +58,11 @@ export default function Home() {
       </section>
       <section className={`py-[60px]`} style={{ backgroundColor: whiteDarker }}>
         <div className="container">
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row justify-between items-center flex-col-reverse">
             <div className="w-[500px]">
               <Image priority src={sectionImgTexture} alt="" />
             </div>
-            <div className="w-[600px]">
+            <div className="w-[600px] lg:mb-0 mb-[30px]">
               <h2 className={`mb-[20px] text-[40px] font-bold flex items-center gap-[16px]`} style={{ color: darkBlue }}>
                 <Image priority width={40} src={sectionIconTexture} alt="" />
                 <span>Текстур-паки</span>
@@ -78,13 +82,45 @@ export default function Home() {
           <h2 className={`mb-[40px] text-shadow-md text-[40px] font-bold text-center mx-auto`} style={{ color: white }}>
             Скины
           </h2>
-          <div className="flex gap-[20px]">
-            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
-            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
-            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
-            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
-            <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
-          </div>
+          <Swiper breakpoints={{
+            768:{
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 20
+            },
+            1400: {
+             slidesPerView: 5,
+             spaceBetween: 20
+            }
+          }} loop={true} modules={[Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false}}>
+              <SwiperSlide>
+                <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SkinCard title="Sitrus1" image={testSkincardPlaceholder} id="1"/>
+              </SwiperSlide>
+          </Swiper>
         </div>
       </section>
     </>

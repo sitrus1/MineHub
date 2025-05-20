@@ -12,7 +12,7 @@ type Props = {
 export const SkinCard: React.FC<Props> = ({title, image, id}: Props) => {
     return(
         <Link href={`/skins/${id}`}>
-            <div className="w-[250px] rounded-[20px] transition hover:translate-y-[-20px]" style={{backgroundColor: whiteDarker}}>
+            <div className="w-[250px] rounded-[20px] transition hover:rotate-3 hover:scale-95" style={{backgroundColor: whiteDarker}}>
                 <div className="w-[250px] h-[300px] flex justify-center items-center rounded-[20px]" style={{backgroundColor: grayWhiter}}>
                     <Image priority className="w-full" src={image} alt={`minecraft skin, named ${title}`}/>
                 </div>

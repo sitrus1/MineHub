@@ -15,11 +15,11 @@ export const Header: React.FC = async () => {
     return (
         <header className={`z-[999] fixed left-0 right-0 top-0 py-[12px] border-b backdrop-blur-[10px]`} style={{ backgroundColor: "#ffffff45", borderColor: white }}>
             <div className="container">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center lg:justify-between justify-center">
                     <Link href={'/'}>
                         <Image priority width={'200'} src={logo} alt="" />
                     </Link>
-                    <ul className="flex items-center gap-[32px]">
+                    <ul className="lg:flex items-center gap-[32px] hidden">
                         {
                             chapters.map((chapter: chapterT) => (
                                 <li key={chapter.id} className={`font-medium text-shadow-md transition opacity-80 hover:opacity-100`} style={{ color: white }}>
